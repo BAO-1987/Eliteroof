@@ -9,8 +9,6 @@
   line-height: 1.5;
   color: var(--color-gray-400);
   background-color: var(--color-white);
- 
-  
 
   &__body {
     position: relative;
@@ -53,7 +51,7 @@
 }
 
 .section {
-  margin-bottom: clamp(1.875rem, calc(1rem + vw(134)), 9.8rem);
+  margin-bottom: clamp(3rem,  vw(100), 6.25rem);
 }
 
 .logo {
@@ -70,3 +68,23 @@
   padding-top: calc(var(--header-height) + 60px);
 }
 
+.shadow {
+  @include cover-bg;
+  @include flex-h-center;
+
+  flex-direction: column;
+
+  min-height: rem(585);
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius-big);
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+  }
+}

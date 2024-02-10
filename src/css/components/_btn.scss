@@ -1,21 +1,23 @@
-@use '../utils/functions' as *;
-@use '../utils/mixins' as *;
+@use "../utils/functions" as *;
+@use "../utils/mixins" as *;
 
 .btn {
-  @include flex-all-center;
+  @include flex-all-sb;
 
   position: relative;
   overflow: hidden;
   z-index: 5;
   border-radius: var(--radius-main);
+  // border: 1px solid transparent;
   padding: 1rem 2rem;
-  max-width: fit-content;
+  width: 100%;
+  max-width: 240px;
   white-space: nowrap;
   font-size: clamp(1rem, 0.95rem + 0.25vi, 1.25rem);
   font-weight: var(--fw-500);
   line-height: 1.8;
   color: var(--color-white);
-  gap: rem(15);
+  gap: rem(30);
   background-color: var(--color-green);
   transition-property: color, box-shadow, background-color;
   transition-duration: 0.8s;
@@ -23,25 +25,26 @@
 
   &::after {
     @include mask;
-     mask-size:contain;
+    mask-size: contain;
     position: relative;
     width: rem(24);
     height: rem(24);
-    mask-image: url('../images/icons/arrow.svg');
+    mask-image: url("../images/icons/arrow.svg");
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     z-index: -1;
     background-color: var(--color-white);
     width: 10%;
-    // border-radius: var(--radius-main);
+    border-radius: inherit;
     inset: 0;
     opacity: 0;
-    transition: transform 0.5s linear, opacity 0.5s linear;
+    transition:
+      transform 0.5s linear,
+      opacity 0.5s linear;
   }
-
 
   // &:focus-visible {
   //   outline-offset: 0;
@@ -49,7 +52,8 @@
   // }
 
   &:hover {
-    color: var(--color-orange);
+    color: var(--color-gray-400);
+    box-shadow: inset 0 0 0 1px var(--color-green);
 
     &::before {
       transform: scale(20);
@@ -57,12 +61,8 @@
     }
   }
 
-  &:active {
-    background-color: var(--color-orange-100);
-  }
-
   &--transparent {
-    border: 1px solid var(--color-white);
+    // border: 1px solid var(--color-white);
     background-color: var(--color-white);
     color: var(--color-gray-400);
   }
@@ -72,22 +72,23 @@
   @include flex-all-center;
 
   position: relative;
-  width: rem(35);
-  height: rem(35);
+  border-radius: var(--radius-main);
+  width: rem(48);
+  height: rem(48);
+  background-color: var(--color-white);
   gap: 1rem;
+  transition: background-color 0.5s linear;
 
   &::before {
     @include mask;
-
-    mask-image: url('../images/icons/arrow.svg');
-    width: rem(35);
-    height: rem(35);
-    background-color: var(--color-white);
+    mask-image: url("../images/icons/arrow.svg");
+    background-color: var(--color-black);
   }
 
   &:hover:not(.swiper-button-disabled) {
+    background-color: var(--color-gray-200);
     &::before {
-      background-color: var(--color-orange);
+      background-color: var(--color-white);
     }
   }
 
@@ -108,7 +109,6 @@
   cursor: not-allowed;
 
   &::before {
-    background-color: var(--color-gray-100);
     cursor: not-allowed;
   }
 }

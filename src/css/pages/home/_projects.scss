@@ -1,0 +1,43 @@
+@use "../../utils/functions" as *;
+@use "../../utils/mixins" as *;
+
+.projects {
+  &__title {
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  &__top {
+    @include cover-bg;
+
+    margin-bottom: rem(20);
+    border-radius: var(--radius-big);
+    padding: clamp(1rem, vw(40), 2.5rem) clamp(1rem, vw(40), 2.5rem) clamp(1rem, vw(40), 2.5rem)
+      clamp(1rem, vw(80), 5rem);
+    min-height: rem(360);
+    background-color: var(--color-gray);
+  }
+
+  &__list {
+    --item: 235px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--item), 1fr));
+    gap: rem(20);
+  }
+
+  &__item {
+    @include flex;
+
+    flex-direction: column;
+    padding: 40px;
+    background-color: var(--color-gray);
+  }
+
+  &__image {
+    margin-bottom: rem(24);
+    border-radius: var(--radius-big);
+    width: rem(300);
+    aspect-ratio: 1.3/1;
+  }
+}

@@ -1,119 +1,76 @@
-@use '../utils/functions' as *;
-@use '../utils/mixins' as *;
+@use "../utils/functions" as *;
+@use "../utils/mixins" as *;
 
 .card {
   @include flex;
+
   position: relative;
+  width: fit-content;
   flex-direction: column;
-  // border: 1px solid var(--color-white);
+  border: 1px solid transparent;
   border-radius: var(--radius-big);
-  padding: clamp(0.8rem, vw(25), 1.56rem);
+  padding: clamp(1rem, vw(32), 2rem);
   height: 100%;
-  gap: rem(20);
-  background-color: var(--color-black);
-  transition: border-color 0.2s linear;
-
-
-  //  mask-image: url('../images/icons/cursor.svg');
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius-big);
-    background: radial-gradient(
-      circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
-      hsl(0 0% 100% / 0.15),
-      transparent 8vmin
-    );
-    background-attachment: fixed;
-    opacity: var(--active, 0);
-    transition: opacity 0.2s;
-    pointer-events: none;
-  }
+  gap: 2rem;
+  background-color: var(--color-white);
+  transition:
+    border-color 0.3s linear,
+    box-shadow 0.3s linear;
 
   &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius-big);
-    background: radial-gradient(
-        circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
-        hsl(0 0% 100% / 0.5),
-        transparent 8vmin
-      ),
-      transparent;
-    background-attachment: fixed;
-    pointer-events: none;
-    mask: linear-gradient(var(--color-white), var(--color-white)) 50% 0 / 100%
-        4px no-repeat,
-      linear-gradient(var(--color-white), var(--color-white)) 50% 100% / 100%
-        4px no-repeat,
-      linear-gradient(var(--color-white), var(--color-white)) 0 50% / 4px 100%
-        no-repeat,
-      linear-gradient(var(--color-white), var(--color-white)) 100% 50% / 4px
-        100% no-repeat;
+    content: "";
+    position: relative;
+    border-radius: var(--radius-main);
+    width: rem(60);
+    height: rem(60);
+    background-image: url("../images/icons/installation.svg");
+    background-position: center;
+    background-size: rem(24);
+    background-repeat: no-repeat;
+    background-color: var(--color-green);
   }
 
-  &__icon {
-    @include flex-v-center;
-    min-height: clamp(2rem, vw(104), 6.5rem);
-
-    // margin-bottom: rem(20);
-    gap: rem(20);
-
+  &--ins {
     &::before {
-      @include mask;
-      position: relative;
-      width: clamp(3rem, vw(70), 4.375rem);
-      aspect-ratio: 1/1;
-      mask-image: url('../images/icons/infinity.svg');
-      flex-shrink: 0;
-    }
-
-    &--digital {
-      &::before {
-        mask-image: url('../images/icons/infinity.svg');
-      }
-    }
-
-    &--seo {
-      &::before {
-        mask-image: url('../images/icons/polygon.svg');
-      }
-    }
-
-    &--smm {
-      &::before {
-        mask-image: url('../images/icons/in.svg');
-      }
-    }
-
-    &--adv {
-      &::before {
-        mask-image: url('../images/icons/triangle.svg');
-      }
+      background-image: url("../images/icons/installation.svg");
     }
   }
 
-  // p {
-  //   margin-bottom: rem(30);
-  // }
-
-  span:not([class]) {
-    font-weight: var(--fw-500);
-    font-size: 1.125rem;
-    line-height: 1.65;
+  &--repair {
+    &::before {
+      background-image: url("../images/icons/repair.svg");
+    }
   }
 
-  &__price {
-    @include flex-v-center;
+  &--replacement {
+    &::before {
+      background-image: url("../images/icons/replacement.svg");
+    }
+  }
+
+  &__title {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    line-height: 1.4;
+    color: var(--color-green);
+  }
+
+  &__btn {
     margin-top: auto;
-    gap: rem(50);
+    padding: rem(11) rem(24);
+    border-radius: 8px;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: rem(170);
+
+    &::after {
+      content: none;
+    }
   }
 
   &:hover {
-    --active: 1;
-    //  border-color: transparent;
+    border-color: var(--color-green);
+    box-shadow: inset 0 0 5px 0 var(--color-green);
   }
 }

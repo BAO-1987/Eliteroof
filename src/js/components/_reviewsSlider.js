@@ -1,19 +1,23 @@
 import Swiper, {
   Navigation,
-  Parallax
+  Pagination
 } from 'swiper';
 
-const reviewsSlider = new Swiper('.reviews-slider', {
+const reviewsSlider = new Swiper('.reviews__slider', {
   slidesPerView: 1,
-  parallax: true,
-  modules: [Parallax, Navigation],
-  spaceBetween: 30,
-  speed: 600,
+  modules: [Pagination, Navigation],
+  loop: true,
+  spaceBetween: 10,
   draggable: true,
   grabCursor: true,
 
   navigation: {
-    nextEl: ".reviews-slider__next",
-    prevEl: ".reviews-slider__prev",
+    nextEl: ".reviews__next",
+    prevEl: ".reviews__prev",
+  },
+
+  pagination: {
+    el: ".swiper-pagination",
+    type: "progressbar",
   },
 });

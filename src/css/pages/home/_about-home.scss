@@ -1,0 +1,32 @@
+@use "../../utils/functions" as *;
+@use "../../utils/mixins" as *;
+
+.about-home {
+  &__inner {
+    position: relative;
+    padding-left: clamp(2rem, vw(80), 5rem);
+  }
+
+  &__title {
+    position: absolute;
+    color: var(--color-white);
+  }
+
+  &__text {
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    border-radius: var(--radius-big) 0 0 var(--radius-big);
+    padding: rem(24) clamp(1rem, vw(80), 5rem)  rem(40) clamp(1rem, vw(40), 2.5rem);
+    width: 100%;
+    max-width: rem(581);
+    background-color: var(--color-white);
+    transform: translateY(-50%);
+  }
+}

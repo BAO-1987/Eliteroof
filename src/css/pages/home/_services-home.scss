@@ -1,0 +1,15 @@
+@use "../../utils/functions" as *;
+@use "../../utils/mixins" as *;
+
+.services-home {
+  padding: clamp(3rem, vw(100), 6.25rem) 0;
+  background-color: var(--color-gray);
+
+  &__list {
+    --item: 235px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--item), 1fr));
+    gap: rem(20);
+  }
+}
