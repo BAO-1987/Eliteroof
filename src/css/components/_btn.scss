@@ -1,0 +1,114 @@
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+.btn {
+  @include flex-all-center;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+  border-radius: var(--radius-main);
+  padding: 1rem 2rem;
+  max-width: fit-content;
+  white-space: nowrap;
+  font-size: clamp(1rem, 0.95rem + 0.25vi, 1.25rem);
+  font-weight: var(--fw-500);
+  line-height: 1.8;
+  color: var(--color-white);
+  gap: rem(15);
+  background-color: var(--color-green);
+  transition-property: color, box-shadow, background-color;
+  transition-duration: 0.8s;
+  transition-timing-function: linear;
+
+  &::after {
+    @include mask;
+     mask-size:contain;
+    position: relative;
+    width: rem(24);
+    height: rem(24);
+    mask-image: url('../images/icons/arrow.svg');
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: var(--color-white);
+    width: 10%;
+    // border-radius: var(--radius-main);
+    inset: 0;
+    opacity: 0;
+    transition: transform 0.5s linear, opacity 0.5s linear;
+  }
+
+
+  // &:focus-visible {
+  //   outline-offset: 0;
+  //   background-color: (var(--color-orange-100));
+  // }
+
+  &:hover {
+    color: var(--color-orange);
+
+    &::before {
+      transform: scale(20);
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    background-color: var(--color-orange-100);
+  }
+
+  &--transparent {
+    border: 1px solid var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-gray-400);
+  }
+}
+
+.slider-btn {
+  @include flex-all-center;
+
+  position: relative;
+  width: rem(35);
+  height: rem(35);
+  gap: 1rem;
+
+  &::before {
+    @include mask;
+
+    mask-image: url('../images/icons/arrow.svg');
+    width: rem(35);
+    height: rem(35);
+    background-color: var(--color-white);
+  }
+
+  &:hover:not(.swiper-button-disabled) {
+    &::before {
+      background-color: var(--color-orange);
+    }
+  }
+
+  &:active:not(.swiper-button-disabled) {
+    &::before {
+      background-color: var(--color-white);
+    }
+  }
+
+  &--reverse {
+    &::before {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.swiper-button-disabled {
+  cursor: not-allowed;
+
+  &::before {
+    background-color: var(--color-gray-100);
+    cursor: not-allowed;
+  }
+}

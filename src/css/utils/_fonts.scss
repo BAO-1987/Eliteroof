@@ -1,0 +1,5 @@
+@use "./mixins/font-face"as *;
+
+@include font-woff("AnekMalayalam", "../fonts/AnekMalayalam-Regular", 400, normal);
+@include font-woff("AnekMalayalam", "../fonts/AnekMalayalam-Medium", 500, normal);
+@include font-woff("BakbakOne", "../fonts/BakbakOne-Regular", 400, normal);

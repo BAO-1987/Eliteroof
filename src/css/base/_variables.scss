@@ -1,0 +1,30 @@
+:root {
+  // container
+  --content-width: 1180px;
+  --container-offset: 15px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+  // base
+  --font-family: "AnekMalayalam", sans-serif;
+  --font-title: "BakbakOne", sans-serif;
+  --fw-400: 400;
+  --fw-500: 500;
+ 
+
+  // colors
+  --color-white: #fff;
+  --color-green: #0C3C43;
+  --color-gray:  #f6f7f8;
+  --color-gray-400: #4b4b4b;
+
+
+  // radius
+  --radius-main: 12px;
+  --radius-big: 24px;
+  --radius-round: 50%;
+
+
+
+  //
+  // --gap: clamp(1rem, calc(0.5rem +vw(22)), 1.875rem);
+}

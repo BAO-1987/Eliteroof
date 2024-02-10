@@ -1,0 +1,80 @@
+@use '../utils/functions/' as *;
+@use '../utils/mixins' as *;
+
+.form {
+  width: 100%;
+  font-size: rem(15);
+
+  &__inner {
+    @include flex;
+    flex-direction: column;
+    gap: rem(30);
+  }
+
+  &__label {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 50%;
+      border-radius: var(--radius-round);
+      width: 7px;
+      height: 7px;
+      background-color: var(--color-red);
+      transform: translateY(-50%);
+    }
+
+    &--textarea {
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  &__input {
+    border-bottom: 1px solid var(--color-gray);
+    padding: rem(10) rem(10) rem(6) rem(10);
+    width: 100%;
+
+    &::placeholder {
+      font-size: rem(15);
+      color: var(--color-gray);
+    }
+
+    &--textarea {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid var(--color-gray);
+      resize: none;
+    }
+
+    &:focus-visible {
+      outline-color: transparent;
+    }
+  }
+
+  &__necessarily {
+    margin-bottom: rem(20);
+  }
+
+  &__text {
+    font-size: rem(15);
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+  }
+
+  &__btn {
+    border-color: var(--color-gray);
+    width: 100%;
+    max-width: 100%;
+    color: var(--color-gray);
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+

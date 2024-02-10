@@ -1,0 +1,47 @@
+@use '../utils/functions/' as *;
+@use '../utils/mixins' as *;
+
+.footer {
+  padding: clamp(2rem, vw(80), 5rem) 0;
+  background-color: var(--color-brown);
+
+  &__inner {
+    @include flex-all-sb;
+    gap: 2rem;
+
+    @include media(mobile-l) {
+      flex-direction: column;
+    }
+  }
+
+  &__copyright {
+    @include flex-all-sb;
+
+    font-size: rem(18);
+    letter-spacing: 0.045em;
+    gap: rem(30);
+
+    span {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: rem(-15);
+        width: 1px;
+        height: 100%;
+        background-color: var(--color-white);
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: underline;
+    transition: color 0.4s linear;
+    text-underline-offset: 1px;
+
+    &:hover {
+      color: var(--color-orange);
+    }
+  }
+}

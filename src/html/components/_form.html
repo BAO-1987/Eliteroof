@@ -1,0 +1,31 @@
+   <form class="form" action="#">
+
+     <div class="form__inner">
+       <label class="form__label">
+         <input class="form__input js-validate" placeholder="Name" type="text" id="customer-first-name"
+           name="customerFirstName"
+           autocomplete="username"
+          required aria-describedby="customer-first-name-error" aria-invalid="false">
+         <span class="error" id="customer-first-name-error"></span>
+       </label>
+
+       <label class="form__label">
+         <input class="form__input js-validate" placeholder="Phone" type="tel" id="customer-phone" name="customerPhone"
+           autocomplete="tel"
+           inputmode="tel" required>
+         <span class="error-massage"></span>
+       </label>
+
+       <label class="form__label form__label--textarea">
+         <textarea class="form__input form__input--textarea js-validate" placeholder="Massage" name="Massage"
+           id="Massage" rows="2"></textarea>
+       </label>
+
+       <span class="form__label form__necessarily"> – necessarily</span>
+
+       <p class="form__text">By clicking the button, I consent to the processing of my personal data</p>
+
+       <button class="btn btn--transparent form__btn" type="submit" data-modal="modal-finish">Request a quote</button>
+     </div>
+
+   </form>
