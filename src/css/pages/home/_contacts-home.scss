@@ -1,0 +1,20 @@
+@use "../../utils/functions" as *;
+@use "../../utils/mixins" as *;
+
+.contacts-home {
+  &__link {
+    @include flex-all-center;
+    margin: 0 auto clamp(2rem, vw(80), 5rem);
+    width: fit-content;
+    font-weight: var(--fw-500);
+    font-size: clamp(1.25rem, 1.1rem + 0.75vi, 2rem);
+    text-align: center;
+    text-decoration: 1px solid underline;
+    color: var(--color-green);
+    transition: text-decoration-color 0.5s linear;
+
+    &:hover {
+      text-decoration-color: transparent;
+    }
+  }
+}

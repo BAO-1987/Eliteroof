@@ -1,46 +1,33 @@
-@use '../utils/functions/' as *;
-@use '../utils/mixins' as *;
+@use "../utils/functions/" as *;
+@use "../utils/mixins" as *;
 
 .form {
   width: 100%;
-  font-size: rem(15);
+
+  &--home {
+    margin: 0 auto;
+    max-width: rem(525);
+  }
 
   &__inner {
-    @include flex;
-    flex-direction: column;
-    gap: rem(30);
+    @include flex-all-sb;
+    gap: 1rem;
   }
 
   &__label {
-    position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 50%;
-      border-radius: var(--radius-round);
-      width: 7px;
-      height: 7px;
-      background-color: var(--color-red);
-      transform: translateY(-50%);
-    }
-
-    &--textarea {
-      &::before {
-        content: none;
-      }
-    }
+    width: 100%;
   }
 
   &__input {
-    border-bottom: 1px solid var(--color-gray);
-    padding: rem(10) rem(10) rem(6) rem(10);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--radius-main);
+    padding: 1rem;
     width: 100%;
+    background-color: var(--color-white);
+    transition: border-color 0.5s linear;
 
     &::placeholder {
-      font-size: rem(15);
-      color: var(--color-gray);
+      color: var(--color-gray-100);
     }
 
     &--textarea {
@@ -51,30 +38,18 @@
     }
 
     &:focus-visible {
+      border-color: var(--color-green);
       outline-color: transparent;
     }
   }
 
-  &__necessarily {
-    margin-bottom: rem(20);
-  }
-
-  &__text {
-    font-size: rem(15);
-    line-height: 1.5;
-    letter-spacing: 0.03em;
-  }
-
   &__btn {
-    border-color: var(--color-gray);
-    width: 100%;
-    max-width: 100%;
-    color: var(--color-gray);
+    padding: rem(8) rem(24);
+    max-width: fit-content;
+    height: rem(56);
 
-    &::before {
-      content: none;
+    &::after {
+      mask-image: url("../images/icons/big-arrow.svg");
     }
   }
 }
-
-

@@ -1,0 +1,55 @@
+@use "../../utils/functions" as *;
+@use "../../utils/mixins" as *;
+
+.faq {
+  &__list {
+    @include flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__item {
+    details {
+      position: relative;
+      border-radius: var(--radius-big);
+      background-color: var(--color-gray);
+    }
+
+    summary {
+      padding: rem(20) rem(75) rem(20) clamp(1.25rem, vw(40), 2.5rem);
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        top: rem(20);
+        right: rem(20);
+        position: absolute;
+        border-radius: var(--radius-main);
+        width: rem(48);
+        height: rem(48);
+        background-color: var(--color-white);
+      }
+
+      &::after {
+        @include mask;
+        top: rem(34);
+        right: rem(34);
+        mask-image: url("../images/icons/arrow-black.svg");
+        transition: transform 0.5s linear;
+      }
+    }
+
+    [open]summary::after {
+      transform: scaleY(-1);
+    }
+    .title--card {
+      max-width: rem(695);
+      margin: 0;
+    }
+  }
+
+  &__content {
+    padding: 0 rem(50) rem(20) clamp(1.25rem, vw(40), 2.5rem);
+    color: var(--color-gray-400);
+  }
+}

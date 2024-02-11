@@ -6,10 +6,30 @@
   background-color: var(--color-gray);
 
   &__list {
-    --item: 235px;
+    --item: 225px;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--item), 1fr));
     gap: rem(20);
+
+    @include media(mobile-m) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  li {
+    &:last-child {
+      @include media(mobile-l) {
+        grid-column: 2 span;
+        margin: 0 auto;
+        max-width: rem(300);
+      }
+
+      @include media(mobile-m) {
+        grid-column: auto;
+        max-width: 100%;
+      }
+    }
   }
 }

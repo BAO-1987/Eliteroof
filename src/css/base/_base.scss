@@ -2,7 +2,7 @@
 @use "../utils/mixins" as *;
 
 .page {
-  min-height: 100vh;
+  height: 100vh;
   font-family: var(--font-family);
   font-weight: var(--fw-400);
   font-size: 1rem;
@@ -40,10 +40,6 @@
   padding: 0 var(--container-offset);
   width: 100%;
   max-width: var(--container-width);
-
-  &--wrapper {
-    --container-width: 720px;
-  }
 }
 
 .site-container {
@@ -51,21 +47,22 @@
 }
 
 .section {
-  margin-bottom: clamp(3rem,  vw(100), 6.25rem);
+  margin-bottom: clamp(3rem, vw(100), 6.25rem);
 }
 
 .logo {
   @include flex-all-center;
+  flex-shrink: 0;
 
   &__img {
-    width: rem(181);
-    min-height: rem(21);
+    width: rem(90);
+    min-height: rem(68);
     object-fit: contain;
   }
 }
 
 .main {
-  padding-top: calc(var(--header-height) + 60px);
+  padding-top: calc(var(--header-height) + 40px);
 }
 
 .shadow {

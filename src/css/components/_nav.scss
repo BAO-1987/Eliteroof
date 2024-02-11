@@ -3,48 +3,30 @@
 
 .nav {
   @include flex-all-sb;
-  gap: 1rem;
-
   &__inner {
-    @include flex;
+    @include flex-all-sb;
+    width: 100%;
 
-    .lang {
-      display: none;
-      visibility: hidden;
-      opacity: 0;
-
-      @include media(mobile-m) {
-        display: flex;
-        visibility: visible;
-        opacity: 1;
-        order: -1;
-      }
-    }
-
-    @include media(mobile-m) {
+    @include media(mobile-l) {
       position: absolute;
       top: calc(var(--header-height));
       left: 0;
-      justify-content: space-between;
-      align-items: flex-start;
+      display: block;
       padding: 4rem 2rem 0;
       z-index: 99;
       height: (var(--vh));
-      background-color: var(--color-black);
+      background-color: var(--color-white);
       width: 100%;
       clip-path: circle(0 at top right);
       transition: clip-path ease-in-out 0.9s;
-
-      .nav__link {
-        font-size: rem(22);
-      }
     }
   }
 
   &__list {
     @include flex-v-center;
+    margin: 0 auto;
 
-    @include media(mobile-m) {
+    @include media(mobile-l) {
       flex-direction: column;
 
       .nav__link {
@@ -55,18 +37,22 @@
 
   &__item {
     &:not(:last-child) {
-      margin-right: clamp(1rem, vw(50), 3.125rem);
+      margin-right: clamp(1rem, vw(48), 3rem);
 
-      @include media(mobile-m) {
+      @include media(mobile-l) {
         margin: 0 0 2rem;
       }
     }
+
+    @include media(mobile-l) {
+        margin: 2rem;
+      }
   }
 
   &__link {
     position: relative;
-    font-size: clamp(1rem, calc(0.975rem + 0.125vw), 1.125rem);
-    transition: color 0.5s linear;
+    font-size: clamp(1rem, 0.95rem + 0.25vi, 1.25rem);
+    color: var(--color-green);
 
     &::before {
       content: "";
@@ -78,19 +64,17 @@
       background-color: currentcolor;
       transform: scale(0);
       transform-origin: left;
-      transition: transform 0.3s linear;
+      transition: transform 0.4s linear;
     }
 
     &:hover {
-      color: var(--color-orange);
-
       &::before {
         transform: scale(1);
       }
     }
 
-    &:active {
-      color: var(--color-orange);
-    }
+    // &:active {
+    //   color: var(--color-green);
+    // }
   }
 }

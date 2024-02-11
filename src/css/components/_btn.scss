@@ -9,15 +9,15 @@
   z-index: 5;
   border-radius: var(--radius-main);
   // border: 1px solid transparent;
-  padding: 1rem 2rem;
-  width: 100%;
-  max-width: 240px;
   white-space: nowrap;
+  padding: 0.75rem 2rem;
+  width: 100%;
+  max-width: rem(240);
   font-size: clamp(1rem, 0.95rem + 0.25vi, 1.25rem);
   font-weight: var(--fw-500);
   line-height: 1.8;
   color: var(--color-white);
-  gap: rem(30);
+  gap: rem(16);
   background-color: var(--color-green);
   transition-property: color, box-shadow, background-color;
   transition-duration: 0.8s;
@@ -25,10 +25,7 @@
 
   &::after {
     @include mask;
-    mask-size: contain;
     position: relative;
-    width: rem(24);
-    height: rem(24);
     mask-image: url("../images/icons/arrow.svg");
   }
 
@@ -38,7 +35,7 @@
     z-index: -1;
     background-color: var(--color-white);
     width: 10%;
-    border-radius: inherit;
+    border-radius: var(--radius-main);
     inset: 0;
     opacity: 0;
     transition:
@@ -52,9 +49,9 @@
   // }
 
   &:hover {
-    color: var(--color-gray-400);
-    box-shadow: inset 0 0 0 1px var(--color-green);
-
+    color: var(--color-green);
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 1px var(--color-green);
     &::before {
       transform: scale(20);
       opacity: 1;

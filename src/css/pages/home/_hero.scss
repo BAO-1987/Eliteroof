@@ -2,15 +2,7 @@
 @use "../../utils/mixins" as *;
 
 .hero {
-  // @include cover-bg;
-  // @include flex-h-center;
-
-  // flex-direction: column;
-
-  // min-height: rem(585);
   color: var(--color-white);
-
-
 
   &__inner {
     padding-left: clamp(2rem, vw(80), 5rem);
@@ -21,6 +13,7 @@
   &__title {
     margin-bottom: rem(15);
     line-height: 1;
+    text-align: left;
     color: var(--color-white);
   }
 
