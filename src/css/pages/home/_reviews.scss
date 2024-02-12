@@ -13,6 +13,7 @@
 
     @include media(mobile-l) {
       flex-direction: column-reverse;
+      align-items: center;
       height: auto;
     }
   }
@@ -27,6 +28,10 @@
     border-radius: var(--radius-big);
     padding: clamp(1rem, vw(40), 2.5rem);
     background-color: var(--color-gray);
+
+    @include media(mobile-l) {
+      height: 100%;
+    }
   }
 
   &__nav {

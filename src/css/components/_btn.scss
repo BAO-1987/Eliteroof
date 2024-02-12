@@ -8,7 +8,6 @@
   overflow: hidden;
   z-index: 5;
   border-radius: var(--radius-main);
-  // border: 1px solid transparent;
   white-space: nowrap;
   padding: 0.75rem 2rem;
   width: 100%;
@@ -19,8 +18,8 @@
   color: var(--color-white);
   gap: rem(16);
   background-color: var(--color-green);
-  transition-property: color, box-shadow, background-color;
-  transition-duration: 0.8s;
+  transition-property: color, background-color;
+  transition-duration: 0.3s;
   transition-timing-function: linear;
 
   &::after {
@@ -29,39 +28,30 @@
     mask-image: url("../images/icons/arrow.svg");
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    background-color: var(--color-white);
-    width: 10%;
-    border-radius: var(--radius-main);
-    inset: 0;
-    opacity: 0;
-    transition:
-      transform 0.5s linear,
-      opacity 0.5s linear;
-  }
-
-  // &:focus-visible {
-  //   outline-offset: 0;
-  //   background-color: (var(--color-orange-100));
-  // }
-
   &:hover {
-    color: var(--color-green);
-    border-color: var(--color-green);
-    box-shadow: 0 0 0 1px var(--color-green);
-    &::before {
-      transform: scale(20);
-      opacity: 1;
-    }
+    background-color: var(--color-green-100);
   }
 
   &--transparent {
-    // border: 1px solid var(--color-white);
     background-color: var(--color-white);
     color: var(--color-gray-400);
+
+    &:hover {
+      color: var(--color-white);
+    }
+  }
+
+  &--small {
+    padding: rem(11) rem(24);
+    border-radius: 8px;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: rem(170);
+
+    &::after {
+      content: none;
+    }
   }
 }
 

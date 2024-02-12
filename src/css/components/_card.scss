@@ -11,7 +11,6 @@
   border-radius: var(--radius-big);
   padding: clamp(1rem, vw(32), 2rem);
   height: 100%;
-  gap: 2rem;
   background-color: var(--color-white);
   transition:
     border-color 0.3s linear,
@@ -20,6 +19,7 @@
   &::before {
     content: "";
     position: relative;
+    margin-bottom: 1rem;
     border-radius: var(--radius-main);
     width: rem(60);
     height: rem(60);
@@ -49,24 +49,16 @@
   }
 
   &__title {
-    font-family: var(--font-title);
-    font-size: 2rem;
+    text-align: left;
     line-height: 1.4;
-    color: var(--color-green);
   }
 
   &__btn {
     margin-top: auto;
-    padding: rem(11) rem(24);
-    border-radius: 8px;
-    justify-content: center;
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: rem(170);
+  }
 
-    &::after {
-      content: none;
-    }
+  p {
+    margin-bottom: 1rem;
   }
 
   &:hover {

@@ -14,16 +14,6 @@
     position: relative;
     min-width: rem(320);
     min-height: var(--vh);
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   z-index: 10;
-    //   width: 0;
-    //   background-color: rgba(0, 0, 0, 0.5);
-    //   transition: width 0.4s linear;
-    //   inset: 0;
-    // }
   }
 
   &.open {
@@ -70,7 +60,6 @@
   @include flex-h-center;
 
   flex-direction: column;
-
   min-height: rem(585);
   position: relative;
   z-index: 2;

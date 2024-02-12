@@ -5,7 +5,7 @@
   position: absolute;
   z-index: 99;
   top: 0;
-  padding: rem(20) 0;
+  padding: clamp(0.6rem, vw(20), 1.125rem) 0;
   width: 100%;
 
   &__link {
