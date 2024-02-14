@@ -48,11 +48,16 @@
     width: rem(90);
     min-height: rem(68);
     object-fit: contain;
+
+    @include media(mobile-m) {
+      width: rem(58);
+      min-height: rem(44);
+    }
   }
 }
 
 .main {
-  padding-top: calc(var(--header-height) + 40px);
+  padding-top: calc(var(--header-height) + vw(40));
 }
 
 .shadow {
@@ -62,7 +67,6 @@
   flex-direction: column;
   min-height: rem(585);
   position: relative;
-  z-index: 2;
   border-radius: var(--radius-big);
 
   &::before {
@@ -72,5 +76,9 @@
     z-index: -1;
     inset: 0;
     border-radius: inherit;
+  }
+
+  @include media(mobile-m) {
+    min-height: rem(480);
   }
 }

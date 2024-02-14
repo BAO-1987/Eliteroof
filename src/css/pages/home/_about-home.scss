@@ -34,4 +34,9 @@
       transform: translateY(-40%);
     }
   }
+
+  &__image {
+    width: 100%;
+    max-width: 1180px;
+  }
 }
